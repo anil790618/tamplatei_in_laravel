@@ -25,3 +25,7 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/about',[AboutController::class,'index']);
 Route::get('/service',[ServicesController::class,'index']);
 Route::get('/contact',[ContactController::class,'index']);
+Route::post('/upload',[ContactController::class,'upload']);
+Route::get('/upload',function(){
+    return view('upload');
+});
