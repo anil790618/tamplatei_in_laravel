@@ -15,10 +15,35 @@
          <div class="container-fluid">
             <div class="row">
                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                  <form class="main_form">
+                  {{-- <form class="main_form"> --}}
+                     {!! Form::open([
+                        'url' => url('storefile'),
+                     'method'=>'post',
+                     // 'id'=>'contact',
+                     // 'role'=>'form',
+                     'class'=>'bv-form',
+                     'enctype'=>'multipart/form-data'
+                     ]) !!}
+                     {{-- @csrf --}}
                      <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                           <input class="form-control" placeholder="Name" type="text" name="Name">
+                           {{-- <input class="form-control" placeholder="Name" type="text" name="Name"> --}}
+                           {!!Form::text('name','',[
+                              'class'=>"form-control", 'placeholder'=>"Name", 'type'=>"text", 'name'=>"Name"
+                           ])!!}
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12"> 
+                           {!!Form::select('country',[
+                              '1'=>'india',
+                              '2'=>'America',
+                              '3'=>'us',
+                           ],
+                           // null
+                           "2"
+                           ,
+                           [
+                              'class'=>"form-control", 'name'=>"select"
+                           ])!!}
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                            <input class="form-control" placeholder="Email" type="text" name="Email">
@@ -33,7 +58,9 @@
                            <button class="send">Send</button>
                         </div>
                      </div>
-                  </form>
+                     {!! Form::close() !!}
+                  {{-- </form> --}}
+
                </div>
                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padddd">
                   <div class="map_section">
